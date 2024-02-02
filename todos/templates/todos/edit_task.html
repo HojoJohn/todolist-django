@@ -1,0 +1,11 @@
+<!-- Inside todos/templates/todos/edit_task.html -->
+
+{% extends 'todos/base.html' %} {% block content %}
+<h2>Edit Task</h2>
+<form method="post" action="{% url 'edit_task' task.id %}">
+  {% csrf_token %}
+  <input type="text" name="title" value="{{ task.title }}" />
+  <textarea name="description">{{ task.description }}</textarea>
+  <input type="submit" value="Update Task" />
+</form>
+{% endblock %}

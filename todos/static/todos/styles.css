@@ -1,0 +1,190 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    margin-top: 20px;
+}
+
+.task-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.task-item {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item:hover {
+    background: #f8f8f8;
+}
+
+.task-content {
+    flex-grow: 1;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-link {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.action-link:hover,
+.action-link:focus {
+    background-color: #e7f1ff;
+    text-decoration: none;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.delete-button {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-button:hover {
+    background: #c82333;
+}
+
+.add-task-container {
+    margin-top: 30px;
+}
+
+.add-task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-text,
+.input-textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-button {
+    background: #29352c;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background: #5e7463;
+}
+
+/* Task Specific Styles */
+.task-completed {
+    text-decoration: line-through;
+    color: #888;
+}
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .task-container,
+    .add-task-container {
+        padding: 10px;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+
+    .delete-button,
+    .action-link,
+    .submit-button {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .input-text,
+    .input-textarea {
+        width: calc(100% - 20px);
+        /* Adjust width for smaller screens */
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 480px) {
+
+    .task-content,
+    .task-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        margin-top: 5px;
+    }
+
+    .action-link,
+    .delete-button {
+        margin-bottom: 5px;
+    }
+}

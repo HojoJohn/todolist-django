@@ -1,0 +1,52 @@
+{% extends 'todos/base.html' %} {% block content %}
+<div class="task-container">
+  <h2>Tasks</h2>
+
+  <ul class="task-list">
+    {% for task in tasks %}
+    <li class="task-item {% if task.completed %}task-completed{% endif %}">
+      <!-- Task Title and Description -->
+      <span class="task-content"
+        >{{ task.title }} - {{ task.description }}</span
+      >
+
+      <div class="task-actions">
+        <!-- Mark as Completed/Incomplete Link -->
+        <a href="{% url 'toggle_completed' task.id %}" class="action-link">
+          Mark as {{ task.completed|yesno:"Incomplete,Complete" }}
+        </a>
+
+        <!-- Edit Task Link -->
+        <a href="{% url 'edit_task' task.id %}" class="action-link">Edit</a>
+
+        <!-- Delete Task Form -->
+        <form
+          method="post"
+          action="{% url 'delete_task' task.id %}"
+          class="delete-form"
+        >
+          {% csrf_token %}
+          <input type="submit" value="Delete" class="delete-button" />
+        </form>
+      </div>
+    </li>
+    {% empty %}
+    <li class="task-item">No tasks yet. Add one above!</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="add-task-container">
+  <h2>Add New Task</h2>
+  <form method="post" action="{% url 'add_task' %}" class="add-task-form">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Title" class="input-text" />
+    <textarea
+      name="description"
+      placeholder="Description"
+      class="input-textarea"
+    ></textarea>
+    <input type="submit" value="Add Task" class="submit-button" />
+  </form>
+</div>
+{% endblock %}

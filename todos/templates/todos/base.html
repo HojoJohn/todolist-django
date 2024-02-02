@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static 'todos/styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1>To-Do List</h1>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer>
+      <p>Simple To-Do List App with Django</p>
+    </footer>
+  </body>
+</html>
